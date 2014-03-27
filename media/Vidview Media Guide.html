@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vidview and Elecard codecs</title>
+	<meta name="author" content="David Hesselbom"/>
+	<meta name="identification" content=""/>
+	<meta name="classification" content=""/>
+	<meta name="date" content="November, 2013"/>
+	<link href="../style/document.css" rel="stylesheet" type="text/css">
+	<script src="../style/toc.js" type="text/javascript"></script>
+</head>
+<body>
+
+<header>Vidview Media Guide</header>
+
+<h1>Motion JPEG input</h1>
+<p>Vidview can take video input from Motion JPEG streams over HTTP. In order to enable support for Motion JPEG streams, install the nuget package <code>Imint.Media.MotionJpeg</code>. Once installed, build the solution, run the application, and enter the URL to the stream. If you're using e.g. Axis camera, the URL should be </p>
+<ol>
+<li><code>http://<b>ipaddress</b>/mjpg/video.mjpg</code> if no login is necessary, or</li>
+<li><code>http://<b>username</b>:<b>password</b>@<b>IPaddress</b>/mjpg/video.mjpg</code> otherwise.</li>
+</ol>
+
+<h1>Elecard filters</h1>
+<p>Vidview can play back video decoded using codecs from Elecard. This will enable you to play back formats such as H264.
+<ol><li>Download and install <a href="http://www.elecard.com/en/products/development/sdk/codec-.net-sdk.html">Elecard Codec .NET SDK G4</a>. The free evaluation version will place watermarks on your video.</li>
+<li>In your Visual Studio project, install the <code>Imint.Media.DirectShow.Elecard</code> package using the NuGet Package Manager and rebuild the project.</li>
+<li>In the open file dialog, you should now see a number of new formats listed, e.g. *.h264.</li></ol></p>
+<p>You may also open UDP streams by entering URIs in the format <code>elecard+udp://<b>IPaddress</b>:<b>port</b></code>. </p>
+<p>Similarly, RTSP streams can be opened with a URI in the format <code>elecard+rtsp://<b>IPaddress</b>:<b>port</b>/<b>pathtostream</b></code>. </p>
+<p>On e.g. an Axis camera, the URI is <code>elecard+rtsp://<b>username</b>:<b>password</b>@<b>IPaddress</b>:554/axis-media/media.amp</code>.</p>
+    
+<h1>Blackmagic Design devices</h1>
+<p>Vidview can take video input from Blackmagic Design devices. This feature is still experimental. In order to enable support for Blackmagic Design devices, install the nuget package <code>Imint.Media.Blackmagic</code>.</p>
+<h2>Configuring your Blackmagic Design device</h2>
+<p>Blackmagic Design devices must be configured using URIs in the following format: <code>blackmagic://[device]?[configuration]</code>, e.g. <code>blackmagic://0?input=HDMI&resolution=HD1080p&rate=30&format=YUV&depth=8</code>. If the configuration entered is not supported by your hardware, opening the device will fail.</p>
+<h3>Device number</h3>
+<p>The [device] part is an integer from <code>0</code> and upwards, and corresponds to the device's position in the same device list found in the <code>Blackmagic Design Control Panel</code> in the Windows Control Panel. If you only have one Blackmagic Design device in your system, this number is <code>0</code>.</p>
+<h3>Configuration</h3>
+<p>The [configuration] part of the URI configures input, resolution, rate, format, and depth, with valid values as follows:</p>
+<ul><li>input: <ul><li>SDI, HDMI, OpticalSDI, Component, Composite, SVideo</li></ul></li>
+<li>resolution: <ul><li>HD1080p, HD1080i, HD720p, HD720i, 4kDCI, 4k2160p, 2k, PAL, PALp, NTSC, NTSCp</li></ul></li>
+<li>rate: <ul><li>23.98, 24, 25, 29.97, 30, 50, 59.94, 60</li></ul></li>
+<li>format: <ul><li>ARGB, YUV, BGRA, RGBX, RGBXLE</li></ul></li>
+<li>depth: <ul><li>8, 10</li></ul></li>
+</ul>
+<h2>Managing presets</h2>
+<p>Once the package <code>Imint.Media.Blackmagic</code> has been installed, your project will have a file 30BlackmagicCapture.xml in the Configuration/Player folder in the Solution Explorer. This file contains several example presets for usage with Blackmagic Design devices, which will show up in the list of capture devices when running the application. You can modify this file to create your own presets. Each preset has a Key, which lets you give your preset an easily recognizable name.</p>
+
+</body></html>
