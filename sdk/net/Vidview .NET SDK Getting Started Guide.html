@@ -22,7 +22,7 @@
 <h2>Microsoft Visual Studio</h2>
 <p>The Vidview SDK is prepared for Microsoft Visual Studio Express 2012 for Windows Desktop, under the Microsoft .NET Framework version 4.5.50709. Make sure that you have a version of Visual Studio 2012 (or later) installed, and ensure that the installation is updated. If you do not have this installed, you can get a license of Visual Studio Express 2012 from <a href="http://www.microsoft.com/visualstudio/eng/downloads">Microsoft.</a></p>
  
-<p>Launch Visual Studio, and make sure that its built-in NuGet Package Manager is up to date. If you need help with this step, follow <a href="Updating NuGet.html">these&nbsp;instructions</a> before continuing.</p>
+<p>Launch Visual Studio, and make sure that its built-in NuGet Package Manager is up to date. If you need help with this step, follow <a href="http://vidview.imint.se/sdk/net/Updating NuGet.html">these&nbsp;instructions</a> before continuing.</p>
 
 <p><b>Please note</b> that even a brand new installation of Visual Studio is <b>not</b> necessarily up to date.</p>
    
@@ -94,4 +94,129 @@ The Vidview SDK comes in NuGet packages. NuGet is a package manager that keeps t
 </figure>
 
 <h2>Note</h2>
-<p>After you have created a Vidview project, you may wish to use it in another solution. To do so, you can import the 
+<p>After you have created a Vidview project, you may wish to use it in another solution. To do so, you can import the  Vidview project into your solution and add a reference to it in your own project. However, even after referencing the Vidview project, Visual Studio will fail to copy some DLLs when building your solution. To work around this issue, you must either:</p>
+<ol>
+	<li>change the output path of the Vidview project to be the same as the output path of your other project, or</li>
+	<li>install the NuGet package <code>Imint.Vidview.Window</code> in your own project.</li>
+</ol>
+
+<h2>Updating packages</h2>
+<p>When updates to the SDK are available, you have 3 options:</p>
+<ol>
+<li>Update the packages,</li>
+<li>Uninstall the packages in your current project and install new ones, or </li>
+<li>Start over with a new project.</li>
+</ol>
+<p>Updating the packages can be done as follows:</p>
+<ol>
+<li>You should already have a local feed pointing to a folder where you unzipped the contents of vidview-dev.zip, e.g. <code>C:\Vidview&nbsp;SDK\</code>. Delete any files in this folder, but keep the folder itself.
+<li>As described <a href="#installing.packages_downloading.the.sdk">earlier</a>, download the SDK as a zip archive from <code>https://aurora.imint.se/download/<b>yourlicensekey</b>/vidview-dev.zip</code>. Once downloaded, unzip its contents into the same folder you did previously, e.g. <code>C:\Vidview&nbsp;SDK\</code>.</li>
+<li>In the "Solution Explorer", right click on your project, and select "Manage NuGet Packages...".</li>
+<li>In the Nuget Package Manager, select the "Updates" tab on the right.</li>
+<li>Select the feed vidview-dev and allow it to load. Remember to "include prerelease" packages in the top drop-down menu.
+<li>Once the package manager has finished loading, click the "Update all" button on the top right of the package list to update all installed packages. This will take a few minutes.</li>
+</ol>
+<p><b>Please note</b> that there may also be package updates available in the <code>nuget.org</code> feed on the right. <u>Do not</u> update these packages, as the Vidview SDK is dependent on specific versions of these libraries, and updating them may cause version conflicts.</p>
+<figure>
+	<img src="images/update_packages.png">
+	<figcaption>The Updates tab of the NuGet Package Manager.</figcaption>
+</figure>
+<h1>Building</h1>
+<h2>Toolbox</h2>
+<p>In the Solution Explorer, double-click your Form1.cs to bring up its designer. Now open the Toolbox on the right (or in View -&gt; Toolbox. Select the "Viewer" component and drag it onto the Form Design area.</p>
+<p>(If there is no Viewer in your Toolbox, please visit <a href="Toolbox Troubleshooting.html">this&nbsp;page</a> for troubleshooting.)</p>
+<figure>
+	<img src="images/toolbox.png">
+	<figcaption>The Toolbox menu with the Viewer control.</figcaption>
+</figure>
+    
+<h2>Build and Run</h2>
+<p>Now it is time to test drive. Select "Start Debugging" from the "Debug" menu, or press F5. The application window should launch requesting a license key.</p>
+<p>If you have already received a license key from us, you may now enter it. Otherwise, enter the key <code>novidhance</code>.</p>
+<p>Please note that the license process requires a working connection with our servers. If that is a problem, <a href="https://aurora.imint.se/help/vidview/Vidview%20License%20Management%20Guide.html">see this page</a> for information on how to issue a license for a computer that is not connected to the Internet.</p>
+<figure>
+	<img src="images/cp_no_license.jpg">
+	<figcaption>The enter a license key dialog.</figcaption>
+</figure>
+<h2>Play a video file</h2>
+<p>Once the proper license is entered the open dialog is shown.</p>
+<figure>
+	<img src="images/cp_vs_form_app.png">
+	<figcaption>The open dialog.</figcaption>
+</figure>
+<p>In the application window, press the file folder icon. A standard file select dialog will open. 
+Choose a video file on your computer, and click ok. Back in the application window, click the checkbox to the right of the top field. (Hint: if the application window is too small, re-size it in Visual Studio). This Vidview example will allow video files in an AVI-container with .avi file extension for mjpeg, wmv1, wmv2, mpeg4 v1 and dv, in ASF-container with .asf file extension for mjpeg, and in ASF-container with .wmv file extention in wmv1 and wmv2.</p>
+<p>After selecting the file, the Vidview application window should look like this. Press the play button at the bottom to start video viewing.</p>
+<figure>
+	<img src="images/cp_vs_vidview_startup.jpg">
+	<figcaption>The application with opened video before pressing play.</figcaption>
+</figure>
+<p>You can now familiarize yourself with the basic video management functionality in the demo application, such as panning, zooming, rotating, replaying, etc.</p>
+<figure>
+	<img src="images/cp_vs_vidview_rotate.jpg">
+	<figcaption>Playback of rotated video.</figcaption>
+</figure>
+
+<h1>Using Vidhance</h1>
+<h2>Adding Vidhance Components</h2>
+<p> This section will describe how Vidhance video enhancement components can be added, and will use the Vidhance Scene Adaptive Contrast Optimization component as an example.
+The following step-by-step list will show how this can be added to the project created in the previous section.</p>
+<h3>Installing Vidhance packages</h3>
+<p>Return to the Manage NuGet Packages dialog by right clicking on the project in the Solution Explorer and selecting "Manage NuGet Packages...". Before installing any new packages, go to the <code>Update</code> tab on the left and make sure your packages are up to date. Then, go back to the <code>Online</code> tab, locate the <code>Imint.Vidhance.Contrast</code> package, and click "Install". It is found quickest by searching for <code>contrast</code> in the top right search field.</p>
+<figure>
+	<img src="images/contrast.png">
+	<figcaption>The Manage NuGet Packages dialog with the <code>Imint.Vidhance.Contrast</code> package selected.</figcaption>
+</figure>
+<p>Rebuild the project (<code>F6</code>) and start a debug session (<code>F5</code>) as described in the previous section.</p>
+<h3>Testing contrast optimizations</h3>
+<p>Follow the instructions in the previous section to select and open a video file.</p>
+<p>In the Vidview demo application window, you will notice that a new icon has appeared to the left with a contrast setting symbol. Press the play button, and then the contrast button.</p>
+<p>You can now experiment with the scene adaptive contrast functionality. You have user control buttons for disabling and enabling contrast enhancement, and to enable colorization. The left slider bar adjust contrast enhancement intensity, and the right slider bar the level of algorithmic complexity. High level of complexity typically pays off in very varying degrees of illumination in the scenery.</p>
+<figure>
+	<img src="images/cp_vs_viewer_contrast.jpg">
+	<figcaption>The Vidview sample application with regional contrast optimization and colorization enabled.</figcaption>
+</figure>
+
+<h2>Process Separation</h2>
+<p>In order to protect the parent process Vidview can be run in a separate process. This way the operating system protects the parent process from crashing in the unlikely event of a Vidview failure.</p> 
+<ol>
+<li>Install the NuGet package <code>Imint.Vidview.Window</code>.</li>
+<li>Open the Viewer.cs class and look for <code>this.vidview.SeparateProcess&nbsp;=&nbsp;false;</code>. Set this value to true.</li>
+<li>Build and run.</li>
+<li>In order to debug the new process, it must be manually attached to the debugger. Open <code>Debug -&gt; Attach to Process</code> in the Visual Studio menu and select <code>Imint.Vidview.Window.exe</code> from the list of available processes.</li>
+</ol>
+<figure>
+	<img src="images/attach_to_process.png">
+	<figcaption>The Debug menu with the "Attach to Process..." option.</figcaption>
+</figure>
+
+<h1>Further exploration</h1>
+<p>This Getting Started Guide will shortly leave you to your own devices for continued exploration. Here are a few suggestions for exploration:</p>
+
+<h2>Additional Vidhance Components</h2>
+<p>Examine other Vidhance video enhancement components, such as:</p>
+<dl>
+	<dt>stabilization</dt><dd><code>Imint.Vidhance.Motion.Stabilize</code></dd>
+	<dt>local mosaicing</dt><dd><code>Imint.Vidhance.Motion.Mosaic</code></dd>
+	<dt>deinterlacing</dt><dd><code>Imint.Vidhance.Deinterlace</code></dd>
+	<dt>object tracking</dt><dd><code>Imint.Vidhance.Motion.Track</code></dd>
+</dl>
+<h2>Experiment with video overlays</h2>
+<p>In the Solution Explorer, navigate to the folder WindowsFormsApplication/Configuration/Overlay/Video. Overlays are configured in XML files; explore the examples given.</p>
+<h2>GUI configuration</h2>
+<p>Look at GUI configuration options, also found under the <code>/Configuration</code> folder.</p>
+<h2>Live Video</h2>
+<p>If you want to experiment with live video, please contact Imint for further support for your specific set-up.</p>
+<p>If you have a DirectShow device, such as a built-in web camera, you can use the basic Vidview Viewing application built here.</p>
+<p>In the Open dialog of the Vidview application, enter the name of your device as: <code> directshow+capture://[name&nbsp;of&nbsp;device]/</code>, or select your device from the list.</p>
+<figure>
+	<img src="images/cp_vs_vidview_directshow.jpg">
+	<figcaption>Example of how to open a web camera stream.</figcaption>
+</figure>
+<p>You should now be able to run your application with a live video stream.</p>
+<figure>
+	<img src="images/cp_vs_vidview_goodbye.jpg">
+	<figcaption>Vidview viewing video from built-in web camera.</figcaption>
+</figure>
+</body>
+</html>
