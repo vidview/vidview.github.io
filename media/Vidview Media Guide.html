@@ -25,7 +25,7 @@
 <p>Vidview can play back video decoded using codecs from Elecard. This will enable you to play back formats such as H264.
 <ol><li>Download and install <a href="http://www.elecard.com/en/products/development/sdk/codec-.net-sdk.html">Elecard Codec .NET SDK G4</a>. The free evaluation version will place watermarks on your video.</li>
 <li>In your Visual Studio project, install the <code>Imint.Media.DirectShow.Elecard</code> package using the NuGet Package Manager and rebuild the project.</li>
-<li>In the open file dialog, you should now see a number of new formats listed, e.g. *.h264.</li></ol></p>
+<li>In the open file dialog, you should now see a number of new formats listed, e.g. *.h264.</li></ol>
 <p>You may also open UDP streams by entering URIs in the format <code>elecard+udp://<b>IPaddress</b>:<b>port</b></code>. </p>
 <p>Similarly, RTSP streams can be opened with a URI in the format <code>elecard+rtsp://<b>IPaddress</b>:<b>port</b>/<b>pathtostream</b></code>. </p>
 <p>On e.g. an Axis camera, the URI is <code>elecard+rtsp://<b>username</b>:<b>password</b>@<b>IPaddress</b>:554/axis-media/media.amp</code>.</p>
@@ -46,5 +46,4 @@
 </ul>
 <h2>Managing presets</h2>
 <p>Once the package <code>Imint.Media.Blackmagic</code> has been installed, your project will have a file 30BlackmagicCapture.xml in the Configuration/Player folder in the Solution Explorer. This file contains several example presets for usage with Blackmagic Design devices, which will show up in the list of capture devices when running the application. You can modify this file to create your own presets. Each preset has a Key, which lets you give your preset an easily recognizable name.</p>
-
 </body></html>
