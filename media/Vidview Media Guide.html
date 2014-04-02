@@ -33,7 +33,7 @@
 <h1>Blackmagic Design devices</h1>
 <p>Vidview can take video input from Blackmagic Design devices. This feature is still experimental. In order to enable support for Blackmagic Design devices, install the nuget package <code>Imint.Media.Blackmagic</code>.</p>
 <h2>Configuring your Blackmagic Design device</h2>
-<p>Blackmagic Design devices must be configured using URIs in the following format: <code>blackmagic://[device]?[configuration]</code>, e.g. <code>blackmagic://0?input=HDMI&resolution=HD1080p&rate=30&format=YUV&depth=8</code>. If the configuration entered is not supported by your hardware, opening the device will fail.</p>
+<p>Blackmagic Design devices must be configured using URIs in the following format: <code>blackmagic://[device]?[configuration]</code>, e.g. <code>blackmagic://0?input=HDMI&amp;resolution=HD1080p&amp;rate=30&amp;format=YUV&amp;depth=8</code>. If the configuration entered is not supported by your hardware, opening the device will fail.</p>
 <h3>Device number</h3>
 <p>The [device] part is an integer from <code>0</code> and upwards, and corresponds to the device's position in the same device list found in the <code>Blackmagic Design Control Panel</code> in the Windows Control Panel. If you only have one Blackmagic Design device in your system, this number is <code>0</code>.</p>
 <h3>Configuration</h3>
