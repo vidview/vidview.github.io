@@ -48,9 +48,22 @@
 </ol>
 </p>
 
+<h2>Setting the Platform Target</h2>
+<p>By default, Visual Studio projects are set to use the "Any CPU" platform target. This can cause problems on x64 systems, which may load binaries that are incompatible with Vidview.</p>
+<ol>
+	<li>In the "Solution Explorer", right click on your newly created Windows Forms project, and select "Properties".</li>
+	<li>Select the "Build" tab on the left.</li>
+	<li>In the "Configuration" dropdown menu at the top, select "All Configurations".</li>
+	<li>In the "Platform target" dropdown menu near the top, select "x86".</li>
+</ol>
+<p><figure>
+	<img src="images/project_properties.png">
+	<figcaption>The project properties dialog.</figcaption>
+</figure>
+</p>
 <h1>Installing packages</h1>
 <h2>NuGet Packages</h2>
-The Vidview SDK comes in NuGet packages. NuGet is a package manager that keeps track of dependencies and handles updates. The next few steps will guide you through setting up your own local package feed, containing the Vidview SDK.</p>
+<p>The Vidview SDK comes in NuGet packages. NuGet is a package manager that keeps track of dependencies and handles updates. The next few steps will guide you through setting up your own local package feed, containing the Vidview SDK.</p>
 <h2>Downloading the SDK</h2>
 <p>Before you set up a local package feed, download the SDK as a zip archive from <code>https://aurora.imint.se/download/<b>yourlicensekey</b>/vidview-latest.zip</code>. Once downloaded, unzip its contents somewhere on disk, e.g. <code>C:\Vidview SDK\</code>. When updates are available, use the same link to download an archive containing the new version.
     
@@ -135,7 +148,7 @@ The Vidview SDK comes in NuGet packages. NuGet is a package manager that keeps t
 <p>If you have already received a license key from us, you may now enter it. Otherwise, enter the key <code>novidhance</code>.</p>
 <p>Please note that the license process requires a working connection with our servers. If that is a problem, <a href="http://vidview.imint.se/license/Vidview%20License%20Management%20Guide.html">see this page</a> for information on how to issue a license for a computer that is not connected to the Internet.</p>
 <figure>
-	<img src="images/cp_no_license.jpg">
+	<img src="images/cp_no_license.png">
 	<figcaption>The enter a license key dialog.</figcaption>
 </figure>
 <h2>Play a video file</h2>
@@ -148,12 +161,12 @@ The Vidview SDK comes in NuGet packages. NuGet is a package manager that keeps t
 Choose a video file on your computer, and click ok. Back in the application window, click the checkbox to the right of the top field. (Hint: if the application window is too small, re-size it in Visual Studio). This Vidview example will allow video files in an AVI-container with .avi file extension for mjpeg, wmv1, wmv2, mpeg4 v1 and dv, in ASF-container with .asf file extension for mjpeg, and in ASF-container with .wmv file extention in wmv1 and wmv2.</p>
 <p>After selecting the file, the Vidview application window should look like this. Press the play button at the bottom to start video viewing.</p>
 <figure>
-	<img src="images/cp_vs_vidview_startup.jpg">
+	<img src="images/cp_vs_vidview_startup.png">
 	<figcaption>The application with opened video before pressing play.</figcaption>
 </figure>
 <p>You can now familiarize yourself with the basic video management functionality in the demo application, such as panning, zooming, rotating, replaying, etc.</p>
 <figure>
-	<img src="images/cp_vs_vidview_rotate.jpg">
+	<img src="images/cp_vs_vidview_rotate.png">
 	<figcaption>Playback of rotated video.</figcaption>
 </figure>
 
