@@ -32,21 +32,21 @@
 <h2>Creating a Visual Studio Project</h2>
 <p>The following step-by-step instruction aims to guide you through setting up a Visual Studio project for Vidview. The project will build a simple demo application, allowing you to open a video from file and perform basic video control.</p>
 
-<p>
 <ol>
 	<li>Launch Visual Studio. In the "File" menu, select "New Project".</li>
-	<li>In the "New Project" dialog, select "Visual C#" templates from the left menu, and select a "Windows Forms Application" as shown below. Give the project a suitable name and location, and press "OK"</li>
+	<li>In the "New Project" dialog, select "Visual C#" templates from the left menu, and select a "Windows Forms Application" as shown below. Give the project a suitable name and location, and press "OK".
 	<figure>
 		<img src="images/new_project.png">
 		<figcaption>Visual Studio New Project dialog with a Visual C# Windows Forms Application selected.</figcaption>
 	</figure>
-	<li>You should now have a project window as shown below.</li>
+	</li>
+	<li>You should now have a project window as shown below.
 	<figure>
 		<img src="images/new_form1.png">
 		<figcaption>A newly created Visual C# Windows Forms project.</figcaption>
 	</figure>
+	</li>
 </ol>
-</p>
 
 <h2>Setting the Platform Target</h2>
 <p>By default, Visual Studio projects are set to use the "Any CPU" platform target. This can cause problems on x64 systems, which may load binaries that are incompatible with Vidview.</p>
@@ -56,11 +56,10 @@
 	<li>In the "Configuration" dropdown menu at the top, select "All Configurations".</li>
 	<li>In the "Platform target" dropdown menu near the top, select "x86".</li>
 </ol>
-<p><figure>
+<figure>
 	<img src="images/project_properties.png">
 	<figcaption>The project properties dialog.</figcaption>
 </figure>
-</p>
 <h1>Installing packages</h1>
 <h2>NuGet Packages</h2>
 <p>The Vidview SDK comes in NuGet packages. NuGet is a package manager that keeps track of dependencies and handles updates. The next few steps will guide you through setting up your own local package feed, containing the Vidview SDK.</p>
@@ -85,7 +84,7 @@
 </figure>
 
 <h3>Enabling listing of prerelease packages</h3>
-<p>At the top of the Manage Nuget Packages dialog, there is a drop-down menu with two possible settings: <ul><li><code>Stable Only</code></li> and <li><code>Include Prerelease</code>.</li></ul> In order to list all of the available packages in the SDK, make sure to select to <code>Include Prerelease</code> packages (as shown in Figure 5).
+<p>At the top of the Manage Nuget Packages dialog, there is a drop-down menu with two possible settings: <ul><li><code>Stable Only</code></li></ul> and <ul><li><code>Include Prerelease</code>.</li></ul> In order to list all of the available packages in the SDK, make sure to select to <code>Include Prerelease</code> packages (as shown in Figure 5).
 
 <h3>Installing packages</h3>
 <p>The packages from vidview-dev should now be listed in the Manage Nuget Packages window. It might take a few seconds, but upon completion it should look like below.</p>
