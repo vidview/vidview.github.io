@@ -145,26 +145,26 @@ shown.</p>
 <p>When using the raw interface the server does not echo any characters back. Data is encoded using <a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>. As newline characters a single linefeed (short name: <code>LF</code>, c escape sequence: <code>\n</code>, hexadecimal: <code>0x0a</code>, decimal: <code>10</code>) is used.</p>
 
 <h1>Window Handling</h1>
-<p>If you want to run Vidview Window as a viewer that appears to be a part of your applications window you need to add <code>-s gui.window.visible false</code> to your commandline. We recomend that you then dock the window and resize it using Windows API (<code>SetParent</code> and <code>MoveWindow</code> funtions in <code>user32.dll</code>). It is also possible to simply move the window into the right position like this:</p>
+<p>If you want to run Vidview Window as a viewer that appears to be a part of your applications window you need to add <code>-s window.visible false</code> to your commandline. We recomend that you then dock the window and resize it using Windows API (<code>SetParent</code> and <code>MoveWindow</code> funtions in <code>user32.dll</code>). It is also possible to simply move the window into the right position like this:</p>
 <dl>
-<dt><code>gui.window.position 10, 20</code></dt><dd>Move the upper left corner of the window to screen coordinates 10, 20 in pixels.</dd>
-<dt><code>gui.window.size 1000, 800</code></dt><dd>Change the viewers width to 1000 pixels and it's height to 800 pixels.</dd>
-<dt><code>gui.window.border none</code></dt><dd>Remove borders from viewer window.</dd>
-<dt><code>gui.window.topmost true</code></dt><dd>Make viewer window stay on top.</dd>
-<dt><code>gui.window.visible true</code></dt><dd>Make viewer window visible.</dd>
+<dt><code>window.position 10, 20</code></dt><dd>Move the upper left corner of the window to screen coordinates 10, 20 in pixels.</dd>
+<dt><code>window.size 1000, 800</code></dt><dd>Change the viewers width to 1000 pixels and it's height to 800 pixels.</dd>
+<dt><code>window.border none</code></dt><dd>Remove borders from viewer window.</dd>
+<dt><code>window.topmost true</code></dt><dd>Make viewer window stay on top.</dd>
+<dt><code>window.visible true</code></dt><dd>Make viewer window visible.</dd>
 </dl>
-<p>Whenever your application loses focus it should send <code>gui.window.topmost false</code> and when it regains focus it should send <code>gui.window.topmost true</code>. When your application window moves it should update the viewers position and when the size changes it should update the viewers size.</p>
+<p>Whenever your application loses focus it should send <code>window.topmost false</code> and when it regains focus it should send <code>window.topmost true</code>. When your application window moves it should update the viewers position and when the size changes it should update the viewers size.</p>
 
 <p>If your application has multiple windows of which Vidview Window is supposed to be one you might want to not shut down Vidview when the user presses the close icon. Instead you might want to hide Vidview and continue to run it in the background so that the next time the user wants to view the video to additional startup time is needed. This can be accomplished by using this initialization sequence:
 <dl>
-<dt><code>gui.window.visible notify</code></dt><dd>Turn on notifications on window visibility in case you want to change the status of your user interfaces dependent on if the Vidview Window window is visible.</dd>
-<dt><code>gui.window.title "Video 1"</code></dt><dd>Change the title of the Vidview Window window to "Video 1"</dd>
-<dt><code>gui.window.closeaction hide</code></dt><dd>Make the window hide instead of closing down the application.</dd>
-<dt><code>gui.window.visible true</code></dt><dd>Make viewer window visible.</dd>
+<dt><code>window.visible notify</code></dt><dd>Turn on notifications on window visibility in case you want to change the status of your user interfaces dependent on if the Vidview Window window is visible.</dd>
+<dt><code>window.title "Video 1"</code></dt><dd>Change the title of the Vidview Window window to "Video 1"</dd>
+<dt><code>window.closeaction hide</code></dt><dd>Make the window hide instead of closing down the application.</dd>
+<dt><code>window.visible true</code></dt><dd>Make viewer window visible.</dd>
 </dl>
 When you intend to close down your application you need to send:
 <dl>
-<dt><code>gui.window.visible false</code></dt><dd>Make viewer window hidden.</dd>
+<dt><code>window.visible false</code></dt><dd>Make viewer window hidden.</dd>
 <dt><code>close</code></dt><dd>Close the application.</dd>
 </dl>
 </body></html>
