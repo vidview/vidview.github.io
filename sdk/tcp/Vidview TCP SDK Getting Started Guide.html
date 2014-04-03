@@ -16,9 +16,9 @@
 
 <h1>Introduction</h1>
 <p>Vidview Window is a video viewer application that can use Vidhance video 
-enhancement. Although Vidview Window is a standalone application it is indented to be 
+enhancements. Although Vidview Window is a standalone application, it is indented to be 
 controlled from another application over TCP/IP. Vidview Window will play video either
-available on disk, from capture devices or received over the network.</p>
+available on disk, from capture devices, or received over the network.</p>
 
 <h1>Prerequisites</h1>
 <h2>System requirements</h2>
@@ -32,7 +32,7 @@ Run the installer and when prompted select typical installation if you don't hav
 <p>The installation process is described in the <a href="http://vidview.imint.se/installation/Vidview SDK Demo Installation Guide.html">Vidview SDK Demo Installation Guide.html</a>.</p>
 
 <h2>Requesting a License</h2>
-<p>In order to use Vidhance video enhancements and/or extra video codecs you need to request a license for the computer you run on. The easiest way to activate is to connect your computer to the Internet and then start Vidview Window with the following commandline: <code>Imint.Vidview.Window.exe -s "license.request 01234ABCDabcd"</code> where <code>01234ABCDabcd</code> is replaced with your license key.</p>
+<p>In order to use Vidhance video enhancements and/or extra video codecs you need to request a license for the computer you run on. The SDK Demo Application installer does this for you when you enter your key, as does the Demo Application itself upon launch should a license be missing. If you wish to request a new license, you can use the license tool (the padlock) in the Demo Application. Alternatively, you can start the Demo Application with the following commandline: <code>Imint.Vidview.Window.exe -s "license.request 01234ABCDabcd"</code> where <code>01234ABCDabcd</code> is replaced with your license key. All of the above require internet access.</p>
 
 <h2>Telnet Client</h2>
 <p>During the integration process you will need a telnet client. If you don't have 
@@ -46,7 +46,7 @@ but the one bundled with Windows will also do the job.</p>
 
 <h1>Getting Started</h1>
 <ol>
-<li>Start Vidview Window with the argument <code>Imint.Vidview.Window.exe -r telnet://:23</code>.</li>
+<li>Start Vidview Window with the argument <code>Imint.Vidview.Window.exe -r telnet://:23</code>, either from the command line, or by modifying the start menu shortcut.</li>
 <li>Use your telnet client to connect to localhost port 23.</li>
 <li>When connected you will see a prompt: <code># &gt;</code>.</li>
 <li>Type: <code>media.open file:///c:/users/user+name/documents/video.avi</code> and press enter. (Path will depend on operating system and user name.)</li>
@@ -71,13 +71,13 @@ but the one bundled with Windows will also do the job.</p>
 command line when starting Vidview.</p>
 <dl>
 <dt><code>protocol</code></dt><dd>The protocol the server should speak, either <code>tcp</code> or <code>telnet</code>.</dd>
-<dt><code>address</code></dt><dd>The ip-address the server should bind to. Leave out in order to bind to all interfaces.</dd>
+<dt><code>address</code></dt><dd>The IP address the server should bind to. Leave out in order to bind to all interfaces.</dd>
 <dt><code>port</code></dt> <dd>The port at which the server should listen to connections.</dd>
 </dl>
 
 <p>Examples: <code>Imint.Vidview.Window.exe -r telnet://:23</code>,<br> <code>Imint.Vidview.Window.exe -r tcp://localhost:1337</code>.<br> The number of concurrent connections is unlimited. Every connection will get its own replies and notifications.</p>
 
-<p>Vidview can listen to multiple ports by adding several arguments: <code>Imint.Vidview.Window.exe -r telnet://:23 -r tcp://localhost:1337</code>. This way your application may use the raw tcp connection and you may during development use the more convenient telnet interface.</p>
+<p>Vidview can listen to multiple ports by adding several arguments: <code>Imint.Vidview.Window.exe -r telnet://:23 -r tcp://localhost:1337</code>. This way your application may use the raw tcp connection, and you may during development use the more convenient telnet interface.</p>
 
 <h2>Usage</h2>
 
@@ -98,7 +98,7 @@ higher up the hierarchy. Starting a path with <code>.</code> will make it absolu
 
 <h3>Response Types</h3>
 <p>All responses begin on a new line. The first letter of the line qualifies the response type.
-The second letter is always a whitespace. There four response types are:</p>
+The second letter is always a whitespace. The four response types are:</p>
 <dl>
 <dt>prompt</dt><dd>The prompt response is followed by the current working object path and ends
 with <code>&gt;</code>. Example: <code># media&gt;</code>.</dd>
@@ -118,53 +118,52 @@ Example command: <code>media.position 00:00:00</code>, response: <code>$ media.p
 </p>
 
 <h3>Activating Notifications for a Property</h3>
-<p>To get notifications of changes to a property just type the full name
- of the property at the prompt followed by a space and the string <code>notify</code> and press enter.<br>
+<p>To get notifications of changes to a property just type the full name of the property at the prompt followed by a space and the string <code>notify</code> and press enter.<br>
 Example command: <br><code>media.position notify</code>,<br> response: <br><code>$ media.position 00:00:00</code><br> and on changes a notification like this <br><code>! media.position 00:00:01</code>will arrive.</p>
 
 <h3>Invoking Methods</h3>
 <p>Methods may require one or more arguments. Arguments are separated 
-from each other using a space character. When a value contains a space 
-characters they shall be prepended with backspace or the value shall be 
+from each other using a space character. When a value contains space 
+characters they must be prepended with backspace, or the value must be 
 surrounded by double quotes.<br>
 Example:<br> <code>media.play</code>,<br> <code>media.open file://c:/video.avi</code>.</p>
 
 <h3>The Telnet Interface</h3>
-<p>Editing at the command line can be done by using backspace, delete, 
+<p>Editing on the command line can be done by using backspace, delete, 
 left and right arrow keys. Auto completion is performed using the tab 
-button. If more then one auto completion option is available a help is 
+button. If more than one auto completion option is available, a help text is 
 shown.</p>
 
 <h3>Reference Manual</h3>
-<p>To get a complete reference of all available properties, methods and objects invoke the <code>help</code> method at the root level. It will generate a reference manual and open it in your browser.</p>
+<p>To get a complete reference of all available properties, methods, and objects, invoke the <code>help</code> method at the root level. This will generate a reference manual and open it in your browser.</p>
 
 <h3>Settings</h3>
-<p>Some properties you might want to be set every time you start Vidview. In that case you might put them in a text file named <code>settings.conf</code> together with the Vidview installation. In case you want to use different settings for different instances of Vidview you might want to specify a settings file by adding something like <code>-c settings1.conf</code> to the command line.</p>
+<p>Some properties you might want to be set every time you start Vidview. In that case you may put them in a text file named <code>settings.conf</code> in the Vidview installation folder. In case you want to use different settings for different instances of Vidview you may want to specify a settings file by adding something like <code>-c settings1.conf</code> to the command line.</p>
 
 <h3>The Raw TCP Interface</h3>
-<p>When using the raw interface the server does not echo any characters back. Data is encoded using <a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>. As newline characters a single linefeed (short name: <code>LF</code>, c escape sequence: <code>\n</code>, hexadecimal: <code>0x0a</code>, decimal: <code>10</code>) is used.</p>
+<p>When using the raw interface the server does not echo any characters back. Data is encoded using <a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>. A single linefeed (short name: <code>LF</code>, C escape sequence: <code>\n</code>, hexadecimal: <code>0x0a</code>, decimal: <code>10</code>) is used as the newline character.</p>
 
 <h1>Window Handling</h1>
-<p>If you want to run Vidview Window as a viewer that appears to be a part of your applications window you need to add <code>-s window.visible false</code> to your commandline. We recomend that you then dock the window and resize it using Windows API (<code>SetParent</code> and <code>MoveWindow</code> funtions in <code>user32.dll</code>). It is also possible to simply move the window into the right position like this:</p>
+<p>If you want to run Vidview Window as a viewer that appears as a part of your application's window you need to add <code>-s window.visible false</code> to your commandline. We recommend that you then dock the window and resize it using the Windows API (<code>SetParent</code> and <code>MoveWindow</code> functions in <code>user32.dll</code>). It is also possible to simply move the window into the right position like this:</p>
 <dl>
 <dt><code>window.position 10, 20</code></dt><dd>Move the upper left corner of the window to screen coordinates 10, 20 in pixels.</dd>
-<dt><code>window.size 1000, 800</code></dt><dd>Change the viewers width to 1000 pixels and it's height to 800 pixels.</dd>
-<dt><code>window.border none</code></dt><dd>Remove borders from viewer window.</dd>
+<dt><code>window.size 1000, 800</code></dt><dd>Change the viewer's width to 1000 pixels and its height to 800 pixels.</dd>
+<dt><code>window.border none</code></dt><dd>Remove borders from the viewer window.</dd>
 <dt><code>window.topmost true</code></dt><dd>Make viewer window stay on top.</dd>
 <dt><code>window.visible true</code></dt><dd>Make viewer window visible.</dd>
 </dl>
-<p>Whenever your application loses focus it should send <code>window.topmost false</code> and when it regains focus it should send <code>window.topmost true</code>. When your application window moves it should update the viewers position and when the size changes it should update the viewers size.</p>
+<p>Whenever your application loses focus it should send <code>window.topmost false</code> and when it regains focus it should send <code>window.topmost true</code>. When your application window moves, it should update the viewer's position, and when the size changes, it should update the viewer's size.</p>
 
-<p>If your application has multiple windows of which Vidview Window is supposed to be one you might want to not shut down Vidview when the user presses the close icon. Instead you might want to hide Vidview and continue to run it in the background so that the next time the user wants to view the video to additional startup time is needed. This can be accomplished by using this initialization sequence:
+<p>If your application has multiple windows of which Vidview Window is supposed to be one, you may want to not shut down Vidview when the user clicks the close icon. Instead you may want to hide Vidview and continue running it in the background so that the next time the user wants to view the video, no additional startup time is needed. This can be accomplished by using this initialization sequence:
 <dl>
-<dt><code>window.visible notify</code></dt><dd>Turn on notifications on window visibility in case you want to change the status of your user interfaces dependent on if the Vidview Window window is visible.</dd>
+<dt><code>window.visible notify</code></dt><dd>Turn on notifications on window visibility in case you want to change the status of your user interfaces depending on whether the Vidview window is visible.</dd>
 <dt><code>window.title "Video 1"</code></dt><dd>Change the title of the Vidview Window window to "Video 1"</dd>
 <dt><code>window.closeaction hide</code></dt><dd>Make the window hide instead of closing down the application.</dd>
-<dt><code>window.visible true</code></dt><dd>Make viewer window visible.</dd>
+<dt><code>window.visible true</code></dt><dd>Make the viewer window visible.</dd>
 </dl>
 When you intend to close down your application you need to send:
 <dl>
-<dt><code>window.visible false</code></dt><dd>Make viewer window hidden.</dd>
+<dt><code>window.visible false</code></dt><dd>Make the viewer window hidden.</dd>
 <dt><code>close</code></dt><dd>Close the application.</dd>
 </dl>
 </body></html>
