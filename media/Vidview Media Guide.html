@@ -38,12 +38,18 @@
 <p>The [device] part is an integer from <code>0</code> and upwards, and corresponds to the device's position in the same device list found in the <code>Blackmagic Design Control Panel</code> in the Windows Control Panel. If you only have one Blackmagic Design device in your system, this number is <code>0</code>.</p>
 <h3>Configuration</h3>
 <p>The [configuration] part of the URI configures input, resolution, rate, format, and depth, with valid values as follows:</p>
-<ul><li>input: <ul><li>SDI, HDMI, OpticalSDI, Component, Composite, SVideo</li></ul></li>
-<li>resolution: <ul><li>HD1080p, HD1080i, HD720p, HD720i, 4kDCI, 4k2160p, 2k, PAL, PALp, NTSC, NTSCp</li></ul></li>
-<li>rate: <ul><li>23.98, 24, 25, 29.97, 30, 50, 59.94, 60</li></ul></li>
-<li>format: <ul><li>ARGB, YUV, BGRA, RGBX, RGBXLE</li></ul></li>
-<li>depth: <ul><li>8, 10</li></ul></li>
-</ul>
+<dl>
+	<dt>input<dt>
+	<dd>SDI, HDMI, OpticalSDI, Component, Composite, SVideo</dd>
+	<dt>resolution</dt>
+	<dd>HD1080p, HD1080i, HD720p, HD720i, 4kDCI, 4k2160p, 2k, PAL, PALp, NTSC, NTSCp</dd>
+	<dt>rate</dt>
+	<dd>23.98, 24, 25, 29.97, 30, 50, 59.94, 60</dd>
+	<dt>format</dt>
+	<dd>ARGB, YUV, BGRA, RGBX, RGBXLE</dd>
+	<dt>depth</dt>
+	<dd>8, 10</dd>
+</dl>
 <h2>Managing presets</h2>
 <p>Once the package <code>Imint.Media.Blackmagic</code> has been installed, your project will have a file 30BlackmagicCapture.xml in the Configuration/Player folder in the Solution Explorer. This file contains several example presets for usage with Blackmagic Design devices, which will show up in the list of capture devices when running the application. You can modify this file to create your own presets. Each preset has a Key, which lets you give your preset an easily recognizable name.</p>
 </body></html>
