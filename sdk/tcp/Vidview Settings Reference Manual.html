@@ -1,0 +1,654 @@
+<!DOCTYPE html> 
+ <html> 
+	<head>
+		<title>Vidview Settings Reference Manual</title>
+		<title>Vidview Settings Reference Manual</title>
+		<link href="../../style/settings.css" rel="stylesheet" type="text/css">
+		<script src="../../style/toc.js" type="text/javascript"></script>
+		<meta charset="UTF-8">
+
+		<meta name="generator" content=" ">
+
+		<meta name="date" content="2014-07-23">
+
+	</head>
+	<body>
+		<header>Vidview Settings Reference Manual</header>
+		<h1 id="" class="object">&lt;root&gt;</h1>
+		<h2 id="_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="error" class="read notify">error</dt>
+			<dd id="error_usage" class="read notify usage">The most recent error message.</dd>
+			<dt id="version" class="read">version</dt>
+			<dd id="version_usage" class="read usage">The product version number.</dd>
+		</dl>
+		<h2 id="_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="close">close</dt>
+			<dd id="close_usage" class="usage">Shut down the current application instance.</dd>
+			<dt id="help">help</dt>
+			<dd id="help_usage" class="usage">Generate and open help document in browser.</dd>
+		</dl>
+		<h1 id="license" class="object">license</h1>
+		<h2 id="license_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="license.expires" class="read">license.expires</dt>
+			<dd id="license.expires_usage" class="read usage">License expiration date.</dd>
+			<dt id="license.key" class="read">license.key</dt>
+			<dd id="license.key_usage" class="read usage">License key.</dd>
+			<dt id="license.signed" class="read">license.signed</dt>
+			<dd id="license.signed_usage" class="read usage">License signing date.</dd>
+			<dt id="license.status" class="read write notify">license.status</dt>
+			<dd id="license.status_usage" class="read write notify usage">License status [missing | invalid | wronghardware | wrongdate | expired | valid]</dd>
+			<dt id="license.valid" class="read notify">license.valid</dt>
+			<dd id="license.valid_usage" class="read notify usage">Whether the license is valid [true | false].</dd>
+		</dl>
+		<h2 id="license_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="license.address">license.address<span class="parameter">license key</span></dt>
+			<dd class="parameters"><dl><dt>license key</dt><dd class="description">Your license key.</dd></dl></dd>
+			<dd id="license.address_usage" class="usage">Address to the license on the license server. Use it to download a license file, which can then be loaded using the load method.</dd>
+			<dd id="license.address_example" class="example">license.address 43j3khj8</dd>
+			<dt id="license.load">license.load<span class="parameter">locator</span></dt>
+			<dd class="parameters"><dl><dt>locator</dt><dd class="description">Locator of license file.</dd></dl></dd>
+			<dd id="license.load_usage" class="usage">Load license from a file.</dd>
+			<dd id="license.load_example" class="example">license.load file:///c:/license.xml</dd>
+			<dt id="license.request">license.request<span class="parameter">license key</span></dt>
+			<dd class="parameters"><dl><dt>license key</dt><dd class="description">Your license key.</dd></dl></dd>
+			<dd id="license.request_usage" class="usage">Request and load a license from the license server.</dd>
+			<dd id="license.request_example" class="example">license.request 43j3khj8</dd>
+		</dl>
+		<h1 id="media" class="object">media</h1>
+		<h2 id="media_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="media.crop" class="read write notify">media.crop</dt>
+			<dd id="media.crop_usage" class="read write notify usage">The media frame cropping [left, right, top, bottom | horizontal, vertical | all].</dd>
+			<dd id="media.crop_example" class="example">media.crop 20, 40</dd>
+			<dt id="media.devices" class="read">media.devices</dt>
+			<dd id="media.devices_usage" class="read usage">A list of all capture devices that can be opened.</dd>
+			<dt id="media.end" class="read notify">media.end</dt>
+			<dd id="media.end_usage" class="read notify usage">Media end position in format [[h:]mm:]ss[.fff].</dd>
+			<dt id="media.endmode" class="read write notify">media.endmode</dt>
+			<dd id="media.endmode_usage" class="read write notify usage">Media end mode [eject | pause | play | repeat].</dd>
+			<dt id="media.extensions" class="read">media.extensions</dt>
+			<dd id="media.extensions_usage" class="read usage">A list of all media file extensions that can be opened.</dd>
+			<dt id="media.hasnext" class="read notify">media.hasnext</dt>
+			<dd id="media.hasnext_usage" class="read notify usage">Whether the input media position can seeked to the last captured position [true | false].</dd>
+			<dt id="media.hasprevious" class="read notify">media.hasprevious</dt>
+			<dd id="media.hasprevious_usage" class="read notify usage">Whether the input media position can seeked to the first captured position [true | false].</dd>
+			<dt id="media.offset" class="read write notify">media.offset</dt>
+			<dd id="media.offset_usage" class="read write notify usage">Media offset position in format [[h:]mm:]ss[.fff].</dd>
+			<dt id="media.position" class="read notify">media.position</dt>
+			<dd id="media.position_usage" class="read notify usage">Current media position in format [[h:]mm:]ss[.fff].</dd>
+			<dt id="media.ratio" class="read write notify">media.ratio</dt>
+			<dd id="media.ratio_usage" class="read write notify usage">The media aspect ratio, as a double value [integer.decimals] or integer fraction [nominator/denominator].</dd>
+			<dd id="media.ratio_example" class="example">media.ratio 16/9</dd>
+			<dt id="media.resource" class="read notify">media.resource</dt>
+			<dd id="media.resource_usage" class="read notify usage">Locator of the currently opened resource.</dd>
+			<dt id="media.scan" class="read write notify">media.scan</dt>
+			<dd id="media.scan_usage" class="read write notify usage">Media scan format [unknown | interlaced | progressive].</dd>
+			<dt id="media.seekable" class="read notify">media.seekable</dt>
+			<dd id="media.seekable_usage" class="read notify usage">Whether the input media is seekable [true | false].</dd>
+			<dt id="media.start" class="read write notify">media.start</dt>
+			<dd id="media.start_usage" class="read write notify usage">Media start position in format [[h:]mm:]ss[.fff].</dd>
+			<dt id="media.state" class="read notify">media.state</dt>
+			<dd id="media.state_usage" class="read notify usage">Media state [closed | paused | playing].</dd>
+		</dl>
+		<h2 id="media_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="media.eject">media.eject</dt>
+			<dd id="media.eject_usage" class="usage">Eject currently opened media.</dd>
+			<dt id="media.next">media.next</dt>
+			<dd id="media.next_usage" class="usage">Play the media from the last captured position.</dd>
+			<dt id="media.open">media.open<span class="parameter">locator</span></dt>
+			<dd class="parameters"><dl><dt>locator</dt><dd class="description">Locator of file, capture device or video stream.</dd></dl></dd>
+			<dd id="media.open_usage" class="usage">Open media specified by locator argument.</dd>
+			<dd id="media.open_example" class="example">media.open file:///c:/test.avi</dd>
+			<dt id="media.pause">media.pause</dt>
+			<dd id="media.pause_usage" class="usage">Pause playback, if playing.</dd>
+			<dt id="media.play">media.play</dt>
+			<dd id="media.play_usage" class="usage">Start playback of opened media.</dd>
+			<dt id="media.previous">media.previous</dt>
+			<dd id="media.previous_usage" class="usage">Play the media from the first captured position.</dd>
+			<dt id="media.seek">media.seek<span class="parameter">position</span></dt>
+			<dd class="parameters"><dl></dl></dd>
+			<dd id="media.seek_usage" class="usage">Seek media to specified position in format [[h:]mm:]ss[.fff].</dd>
+			<dd id="media.seek_example" class="example">media.seek 03:12</dd>
+		</dl>
+		<h1 id="settings" class="object">settings</h1>
+		<h2 id="settings_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="settings.asynchronous" class="read write">settings.asynchronous</dt>
+			<dd id="settings.asynchronous_usage" class="read write usage">Asynchronous mode [None | Set | Notify | SetNotify | Call | SetCall | NotifyCall | All], where Set, Notify, and Call make property sets, notifications, and method calls, respectively, asynchronous. This means that the application will not wait for a response from the callee.</dd>
+		</dl>
+		<h1 id="snapshot" class="object">snapshot</h1>
+		<h2 id="snapshot_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="snapshot.sources" class="read">snapshot.sources</dt>
+			<dd id="snapshot.sources_usage" class="read usage">Comma separated list of snapshot sources currently available for capturing.</dd>
+		</dl>
+		<h2 id="snapshot_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="snapshot.capture">snapshot.capture<span class="parameter">source</span><span class="parameter">locator</span></dt>
+			<dd class="parameters"><dl><dt>source</dt><dd class="description">Snapshot source [original | enhanced | viewer].</dd><dt>locator</dt><dd class="description">Where to store the snapshot.</dd></dl></dd>
+			<dd id="snapshot.capture_usage" class="usage">Capture the last frame in the video stream.</dd>
+			<dd id="snapshot.capture_example" class="example">snapshot.capture original file:///$(Pictures)/snapshot-$(Time).png</dd>
+		</dl>
+		<h1 id="vidhance.contrast" class="object">vidhance.contrast</h1>
+		<h2 id="vidhance.contrast_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="vidhance.contrast.complexity" class="read write notify">vidhance.contrast.complexity</dt>
+			<dd id="vidhance.contrast.complexity_usage" class="read write notify usage">Computational complexity of contrast algorithm. Valid values are integers in the range [0 - 10], where 0 turns contrast enhancements off.</dd>
+			<dd id="vidhance.contrast.complexity_default" class="default">3</dd>
+			<dt id="vidhance.contrast.intensity" class="read write notify">vidhance.contrast.intensity</dt>
+			<dd id="vidhance.contrast.intensity_usage" class="read write notify usage">Contrast intensity value in the range [0 - 1] where 0 equals no change and 1 equals extreme changes.</dd>
+			<dd id="vidhance.contrast.intensity_default" class="default">0.5</dd>
+			<dt id="vidhance.contrast.mode" class="read write notify">vidhance.contrast.mode</dt>
+			<dd id="vidhance.contrast.mode_usage" class="read write notify usage">Contrast optimization mode [off | luma | color | colorize | monochrome].</dd>
+			<dd id="vidhance.contrast.mode_default" class="default">luma</dd>
+		</dl>
+		<h1 id="vidhance.deinterlace" class="object">vidhance.deinterlace</h1>
+		<h2 id="vidhance.deinterlace_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="vidhance.deinterlace.method" class="read write notify">vidhance.deinterlace.method</dt>
+			<dd id="vidhance.deinterlace.method_usage" class="read write notify usage">Deinterlace method [even | odd].</dd>
+			<dd id="vidhance.deinterlace.method_default" class="default">even</dd>
+			<dt id="vidhance.deinterlace.mode" class="read write notify">vidhance.deinterlace.mode</dt>
+			<dd id="vidhance.deinterlace.mode_usage" class="read write notify usage">Deinterlace mode [off | on].</dd>
+			<dd id="vidhance.deinterlace.mode_default" class="default">off</dd>
+		</dl>
+		<h1 id="vidhance.mosaic" class="object">vidhance.mosaic</h1>
+		<h2 id="vidhance.mosaic_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="vidhance.mosaic.fade" class="read write notify">vidhance.mosaic.fade</dt>
+			<dd id="vidhance.mosaic.fade_usage" class="read write notify usage">Local mosaic fading speed [0 - 1].</dd>
+			<dd id="vidhance.mosaic.fade_default" class="default">0.5</dd>
+			<dt id="vidhance.mosaic.mode" class="read write notify">vidhance.mosaic.mode</dt>
+			<dd id="vidhance.mosaic.mode_usage" class="read write notify usage">Local mosaic mode [off | on].</dd>
+			<dd id="vidhance.mosaic.mode_default" class="default">on</dd>
+			<dt id="vidhance.mosaic.size" class="read write notify">vidhance.mosaic.size</dt>
+			<dd id="vidhance.mosaic.size_usage" class="read write notify usage">Local mosaic size (width, height).</dd>
+			<dd id="vidhance.mosaic.size_default" class="default">1024,1024</dd>
+		</dl>
+		<h1 id="vidhance.sharp" class="object">vidhance.sharp</h1>
+		<h2 id="vidhance.sharp_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="vidhance.sharp.interval" class="read write notify">vidhance.sharp.interval</dt>
+			<dd id="vidhance.sharp.interval_usage" class="read write notify usage">The amount of time allowed for sharp image selection. Will clamp to values between 0 and 10 seconds.</dd>
+			<dd id="vidhance.sharp.interval_default" class="default">00:00:00.400</dd>
+			<dt id="vidhance.sharp.mode" class="read write notify">vidhance.sharp.mode</dt>
+			<dd id="vidhance.sharp.mode_usage" class="read write notify usage">Sharp mode [off | stills | pause | filter].</dd>
+			<dd id="vidhance.sharp.mode_default" class="default">stills, pause</dd>
+		</dl>
+		<h1 id="vidhance.stabilize" class="object">vidhance.stabilize</h1>
+		<h2 id="vidhance.stabilize_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="vidhance.stabilize.mode" class="read write notify">vidhance.stabilize.mode</dt>
+			<dd id="vidhance.stabilize.mode_usage" class="read write notify usage">Stabilization mode [off | overview | zoom | operator | auto].</dd>
+			<dd id="vidhance.stabilize.mode_default" class="default">overview</dd>
+			<dt id="vidhance.stabilize.scale" class="read write notify">vidhance.stabilize.scale</dt>
+			<dd id="vidhance.stabilize.scale_usage" class="read write notify usage">The scale of the stabilization area target. If set to 0 it defaults to the viewer's scale, or 1 when no viewer is present.</dd>
+			<dt id="vidhance.stabilize.size" class="read write notify">vidhance.stabilize.size</dt>
+			<dd id="vidhance.stabilize.size_usage" class="read write notify usage">The size of the stabilization area target. If set to (0, 0) it defaults to the viewer's size, or (1024, 768) when no viewer is present.</dd>
+		</dl>
+		<h2 id="vidhance.stabilize_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="vidhance.stabilize.reset">vidhance.stabilize.reset</dt>
+			<dd id="vidhance.stabilize.reset_usage" class="usage">Reset stabilization.</dd>
+			<dt id="vidhance.stabilize.resetpan">vidhance.stabilize.resetpan</dt>
+			<dd id="vidhance.stabilize.resetpan_usage" class="usage">Reset stabilization panning.</dd>
+			<dt id="vidhance.stabilize.resetrotation">vidhance.stabilize.resetrotation</dt>
+			<dd id="vidhance.stabilize.resetrotation_usage" class="usage">Reset stabilization rotation.</dd>
+			<dt id="vidhance.stabilize.resetscale">vidhance.stabilize.resetscale</dt>
+			<dd id="vidhance.stabilize.resetscale_usage" class="usage">Reset stabilization scale.</dd>
+		</dl>
+		<h1 id="vidhance.track" class="object">vidhance.track</h1>
+		<h2 id="vidhance.track_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="vidhance.track.active" class="read write notify">vidhance.track.active</dt>
+			<dd id="vidhance.track.active_usage" class="read write notify usage">Whether tracking is currently active [false | true].</dd>
+			<dt id="vidhance.track.bounds" class="read notify">vidhance.track.bounds</dt>
+			<dd id="vidhance.track.bounds_usage" class="read notify usage">The tracked object region bounds (left, top, width, height) in a normalized coordinate system, where (-0.5,-0.5) is the upper left corner and (0,0) is the image center.</dd>
+			<dt id="vidhance.track.defaultsize" class="read write notify">vidhance.track.defaultsize</dt>
+			<dd id="vidhance.track.defaultsize_usage" class="read write notify usage">The default size of the bounding box around the target.</dd>
+			<dt id="vidhance.track.enabled" class="read write notify">vidhance.track.enabled</dt>
+			<dd id="vidhance.track.enabled_usage" class="read write notify usage">Enables / disables pointer interaction.</dd>
+			<dt id="vidhance.track.maximumsize" class="read write notify">vidhance.track.maximumsize</dt>
+			<dd id="vidhance.track.maximumsize_usage" class="read write notify usage">The maximum bounding box size around the target.</dd>
+			<dt id="vidhance.track.minimumsize" class="read write notify">vidhance.track.minimumsize</dt>
+			<dd id="vidhance.track.minimumsize_usage" class="read write notify usage">The minimum bounding box size around the target.</dd>
+			<dt id="vidhance.track.mode" class="read write notify">vidhance.track.mode</dt>
+			<dd id="vidhance.track.mode_usage" class="read write notify usage">The current tracking mode [adaptive | static].</dd>
+			<dt id="vidhance.track.quality" class="read notify">vidhance.track.quality</dt>
+			<dd id="vidhance.track.quality_usage" class="read notify usage">Quality of tracked object region bounds, as a value between 0 (bad) and 1 (good).</dd>
+		</dl>
+		<h2 id="vidhance.track_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="vidhance.track.start">vidhance.track.start<span class="parameter">start</span></dt>
+			<dd class="parameters"><dl></dl></dd>
+			<dd id="vidhance.track.start_usage" class="usage">Start tracking of object in the region specified by start.</dd>
+			<dd id="vidhance.track.start_example" class="example">vidhance.track.start 0.1, -0.3</dd>
+			<dt id="vidhance.track.stop">vidhance.track.stop</dt>
+			<dd id="vidhance.track.stop_usage" class="usage">Stop tracking current object.</dd>
+		</dl>
+		<h1 id="viewer" class="object">viewer</h1>
+		<h2 id="viewer_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.contentsize" class="read notify">viewer.contentsize</dt>
+			<dd id="viewer.contentsize_usage" class="read notify usage">The size of the content viewed, in pixels (width, height).</dd>
+			<dt id="viewer.rotation" class="read write notify">viewer.rotation</dt>
+			<dd id="viewer.rotation_usage" class="read write notify usage">The media rotation in the viewer, given in radians.</dd>
+			<dt id="viewer.scalemode" class="read write notify">viewer.scalemode</dt>
+			<dd id="viewer.scalemode_usage" class="read write notify usage">Defines how scaling reacts to changes in viewer and content size.</dd>
+			<dt id="viewer.scaling" class="read write notify">viewer.scaling</dt>
+			<dd id="viewer.scaling_usage" class="read write notify usage">The media scaling in the viewer.</dd>
+			<dt id="viewer.serial" class="read notify">viewer.serial</dt>
+			<dd id="viewer.serial_usage" class="read notify usage">Serial number of content currently shown.</dd>
+			<dt id="viewer.size" class="read notify">viewer.size</dt>
+			<dd id="viewer.size_usage" class="read notify usage">The size of the viewing area in pixels (width, height).</dd>
+			<dt id="viewer.transform" class="read write notify">viewer.transform</dt>
+			<dd id="viewer.transform_usage" class="read write notify usage">The media 2D 3x2 transform matrix [a, b, c, d, e, f].</dd>
+			<dt id="viewer.translation" class="read write notify">viewer.translation</dt>
+			<dd id="viewer.translation_usage" class="read write notify usage">The media translation within the viewer (x,y).</dd>
+			<dt id="viewer.updaterate" class="read notify">viewer.updaterate</dt>
+			<dd id="viewer.updaterate_usage" class="read notify usage">The current update rate of the content viewed, given in Hz.</dd>
+		</dl>
+		<h2 id="viewer_methods" class="methods">Methods</h2>
+		<dl class="methods">
+			<dt id="viewer.fill">viewer.fill</dt>
+			<dd id="viewer.fill_usage" class="usage">Set video scaling so that the video fills the viewer without any borders.</dd>
+			<dt id="viewer.fit">viewer.fit</dt>
+			<dd id="viewer.fit_usage" class="usage">Set video scaling so that the video fills the viewer and still shows the full video.</dd>
+		</dl>
+		<h1 id="viewer.overlays.cross" class="object">viewer.overlays.cross</h1>
+		<h2 id="viewer.overlays.cross_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.cross.align" class="read write">viewer.overlays.cross.align</dt>
+			<dd id="viewer.overlays.cross.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.cross.fill" class="read write">viewer.overlays.cross.fill</dt>
+			<dd id="viewer.overlays.cross.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.cross.fillopacity" class="read write">viewer.overlays.cross.fillopacity</dt>
+			<dd id="viewer.overlays.cross.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.cross.hidden" class="read write">viewer.overlays.cross.hidden</dt>
+			<dd id="viewer.overlays.cross.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.cross.remote" class="read">viewer.overlays.cross.remote</dt>
+			<dd id="viewer.overlays.cross.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.cross.size" class="read">viewer.overlays.cross.size</dt>
+			<dd id="viewer.overlays.cross.size_usage" class="read usage">The size of the overlay when rendered, measured in pixels.</dd>
+			<dt id="viewer.overlays.cross.sizetag" class="read write">viewer.overlays.cross.sizetag</dt>
+			<dt id="viewer.overlays.cross.stroke" class="read write">viewer.overlays.cross.stroke</dt>
+			<dd id="viewer.overlays.cross.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.cross.strokeopacity" class="read write">viewer.overlays.cross.strokeopacity</dt>
+			<dd id="viewer.overlays.cross.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.cross.strokewidth" class="read write">viewer.overlays.cross.strokewidth</dt>
+			<dd id="viewer.overlays.cross.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.cross.transform" class="read write">viewer.overlays.cross.transform</dt>
+			<dd id="viewer.overlays.cross.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.cross.transformtag" class="read write">viewer.overlays.cross.transformtag</dt>
+			<dt id="viewer.overlays.cross.type" class="read">viewer.overlays.cross.type</dt>
+			<dd id="viewer.overlays.cross.type_usage" class="read usage">The object type of this overlay.</dd>
+		</dl>
+		<h1 id="viewer.overlays.jitter" class="object">viewer.overlays.jitter</h1>
+		<h2 id="viewer.overlays.jitter_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.jitter.align" class="read write">viewer.overlays.jitter.align</dt>
+			<dd id="viewer.overlays.jitter.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.jitter.fill" class="read write">viewer.overlays.jitter.fill</dt>
+			<dd id="viewer.overlays.jitter.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.jitter.fillopacity" class="read write">viewer.overlays.jitter.fillopacity</dt>
+			<dd id="viewer.overlays.jitter.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.jitter.fontfamily" class="read write">viewer.overlays.jitter.fontfamily</dt>
+			<dd id="viewer.overlays.jitter.fontfamily_usage" class="read write usage">The font family used, e.g. Verdana.</dd>
+			<dd id="viewer.overlays.jitter.fontfamily_default" class="default">Verdana</dd>
+			<dt id="viewer.overlays.jitter.fontsize" class="read write">viewer.overlays.jitter.fontsize</dt>
+			<dd id="viewer.overlays.jitter.fontsize_usage" class="read write usage">Font size, e.g. 12px.</dd>
+			<dd id="viewer.overlays.jitter.fontsize_default" class="default">12px</dd>
+			<dt id="viewer.overlays.jitter.fontweight" class="read write">viewer.overlays.jitter.fontweight</dt>
+			<dd id="viewer.overlays.jitter.fontweight_usage" class="read write usage">Font weight [normal | bold].</dd>
+			<dt id="viewer.overlays.jitter.format" class="read write">viewer.overlays.jitter.format</dt>
+			<dd id="viewer.overlays.jitter.format_usage" class="read write usage">The format used to display the values of this overlay, e.g. "jitter:\navg {0:fff} ms \nmax {1:fff} ms" (default).</dd>
+			<dt id="viewer.overlays.jitter.hidden" class="read write">viewer.overlays.jitter.hidden</dt>
+			<dd id="viewer.overlays.jitter.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.jitter.remote" class="read">viewer.overlays.jitter.remote</dt>
+			<dd id="viewer.overlays.jitter.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.jitter.size" class="read">viewer.overlays.jitter.size</dt>
+			<dd id="viewer.overlays.jitter.size_usage" class="read usage">The size of the text, measured in pixels.</dd>
+			<dt id="viewer.overlays.jitter.sizetag" class="read write">viewer.overlays.jitter.sizetag</dt>
+			<dt id="viewer.overlays.jitter.stroke" class="read write">viewer.overlays.jitter.stroke</dt>
+			<dd id="viewer.overlays.jitter.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.jitter.strokeopacity" class="read write">viewer.overlays.jitter.strokeopacity</dt>
+			<dd id="viewer.overlays.jitter.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.jitter.strokewidth" class="read write">viewer.overlays.jitter.strokewidth</dt>
+			<dd id="viewer.overlays.jitter.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.jitter.textalign" class="read write">viewer.overlays.jitter.textalign</dt>
+			<dd id="viewer.overlays.jitter.textalign_usage" class="read write usage">Text alignment [start | middle | end].</dd>
+			<dt id="viewer.overlays.jitter.transform" class="read write">viewer.overlays.jitter.transform</dt>
+			<dd id="viewer.overlays.jitter.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.jitter.transformtag" class="read write">viewer.overlays.jitter.transformtag</dt>
+			<dt id="viewer.overlays.jitter.type" class="read">viewer.overlays.jitter.type</dt>
+			<dd id="viewer.overlays.jitter.type_usage" class="read usage">The object type of this overlay.</dd>
+			<dt id="viewer.overlays.jitter.value" class="read write">viewer.overlays.jitter.value</dt>
+			<dd id="viewer.overlays.jitter.value_usage" class="read write usage">The text content.</dd>
+		</dl>
+		<h1 id="viewer.overlays.latency" class="object">viewer.overlays.latency</h1>
+		<h2 id="viewer.overlays.latency_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.latency.align" class="read write">viewer.overlays.latency.align</dt>
+			<dd id="viewer.overlays.latency.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.latency.fill" class="read write">viewer.overlays.latency.fill</dt>
+			<dd id="viewer.overlays.latency.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.latency.fillopacity" class="read write">viewer.overlays.latency.fillopacity</dt>
+			<dd id="viewer.overlays.latency.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.latency.fontfamily" class="read write">viewer.overlays.latency.fontfamily</dt>
+			<dd id="viewer.overlays.latency.fontfamily_usage" class="read write usage">The font family used, e.g. Verdana.</dd>
+			<dd id="viewer.overlays.latency.fontfamily_default" class="default">Verdana</dd>
+			<dt id="viewer.overlays.latency.fontsize" class="read write">viewer.overlays.latency.fontsize</dt>
+			<dd id="viewer.overlays.latency.fontsize_usage" class="read write usage">Font size, e.g. 12px.</dd>
+			<dd id="viewer.overlays.latency.fontsize_default" class="default">12px</dd>
+			<dt id="viewer.overlays.latency.fontweight" class="read write">viewer.overlays.latency.fontweight</dt>
+			<dd id="viewer.overlays.latency.fontweight_usage" class="read write usage">Font weight [normal | bold].</dd>
+			<dt id="viewer.overlays.latency.format" class="read write">viewer.overlays.latency.format</dt>
+			<dd id="viewer.overlays.latency.format_usage" class="read write usage">The format used to display the values of this overlay, e.g. "latency:
+avg {0:fff} ms
+max {1:fff} ms" (default).</dd>
+			<dt id="viewer.overlays.latency.hidden" class="read write">viewer.overlays.latency.hidden</dt>
+			<dd id="viewer.overlays.latency.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.latency.remote" class="read">viewer.overlays.latency.remote</dt>
+			<dd id="viewer.overlays.latency.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.latency.size" class="read">viewer.overlays.latency.size</dt>
+			<dd id="viewer.overlays.latency.size_usage" class="read usage">The size of the text, measured in pixels.</dd>
+			<dt id="viewer.overlays.latency.sizetag" class="read write">viewer.overlays.latency.sizetag</dt>
+			<dt id="viewer.overlays.latency.stroke" class="read write">viewer.overlays.latency.stroke</dt>
+			<dd id="viewer.overlays.latency.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.latency.strokeopacity" class="read write">viewer.overlays.latency.strokeopacity</dt>
+			<dd id="viewer.overlays.latency.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.latency.strokewidth" class="read write">viewer.overlays.latency.strokewidth</dt>
+			<dd id="viewer.overlays.latency.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.latency.textalign" class="read write">viewer.overlays.latency.textalign</dt>
+			<dd id="viewer.overlays.latency.textalign_usage" class="read write usage">Text alignment [start | middle | end].</dd>
+			<dt id="viewer.overlays.latency.transform" class="read write">viewer.overlays.latency.transform</dt>
+			<dd id="viewer.overlays.latency.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.latency.transformtag" class="read write">viewer.overlays.latency.transformtag</dt>
+			<dt id="viewer.overlays.latency.type" class="read">viewer.overlays.latency.type</dt>
+			<dd id="viewer.overlays.latency.type_usage" class="read usage">The object type of this overlay.</dd>
+			<dt id="viewer.overlays.latency.value" class="read write">viewer.overlays.latency.value</dt>
+			<dd id="viewer.overlays.latency.value_usage" class="read write usage">The text content.</dd>
+		</dl>
+		<h1 id="viewer.overlays.logotype" class="object">viewer.overlays.logotype</h1>
+		<h2 id="viewer.overlays.logotype_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.logotype.align" class="read write">viewer.overlays.logotype.align</dt>
+			<dd id="viewer.overlays.logotype.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.logotype.fill" class="read write">viewer.overlays.logotype.fill</dt>
+			<dd id="viewer.overlays.logotype.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.logotype.fillopacity" class="read write">viewer.overlays.logotype.fillopacity</dt>
+			<dd id="viewer.overlays.logotype.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.logotype.hidden" class="read write">viewer.overlays.logotype.hidden</dt>
+			<dd id="viewer.overlays.logotype.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.logotype.remote" class="read">viewer.overlays.logotype.remote</dt>
+			<dd id="viewer.overlays.logotype.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.logotype.size" class="read">viewer.overlays.logotype.size</dt>
+			<dd id="viewer.overlays.logotype.size_usage" class="read usage">The size of the overlay when rendered, measured in pixels.</dd>
+			<dt id="viewer.overlays.logotype.sizetag" class="read write">viewer.overlays.logotype.sizetag</dt>
+			<dt id="viewer.overlays.logotype.stroke" class="read write">viewer.overlays.logotype.stroke</dt>
+			<dd id="viewer.overlays.logotype.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.logotype.strokeopacity" class="read write">viewer.overlays.logotype.strokeopacity</dt>
+			<dd id="viewer.overlays.logotype.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.logotype.strokewidth" class="read write">viewer.overlays.logotype.strokewidth</dt>
+			<dd id="viewer.overlays.logotype.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.logotype.transform" class="read write">viewer.overlays.logotype.transform</dt>
+			<dd id="viewer.overlays.logotype.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.logotype.transformtag" class="read write">viewer.overlays.logotype.transformtag</dt>
+			<dt id="viewer.overlays.logotype.type" class="read">viewer.overlays.logotype.type</dt>
+			<dd id="viewer.overlays.logotype.type_usage" class="read usage">The object type of this overlay.</dd>
+		</dl>
+		<h1 id="viewer.overlays.northarrow" class="object">viewer.overlays.northarrow</h1>
+		<h2 id="viewer.overlays.northarrow_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.northarrow.align" class="read write">viewer.overlays.northarrow.align</dt>
+			<dd id="viewer.overlays.northarrow.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.northarrow.fill" class="read write">viewer.overlays.northarrow.fill</dt>
+			<dd id="viewer.overlays.northarrow.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.northarrow.fillopacity" class="read write">viewer.overlays.northarrow.fillopacity</dt>
+			<dd id="viewer.overlays.northarrow.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.northarrow.hidden" class="read write">viewer.overlays.northarrow.hidden</dt>
+			<dd id="viewer.overlays.northarrow.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.northarrow.remote" class="read">viewer.overlays.northarrow.remote</dt>
+			<dd id="viewer.overlays.northarrow.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.northarrow.size" class="read">viewer.overlays.northarrow.size</dt>
+			<dd id="viewer.overlays.northarrow.size_usage" class="read usage">The size of the overlay when rendered, measured in pixels.</dd>
+			<dt id="viewer.overlays.northarrow.sizetag" class="read write">viewer.overlays.northarrow.sizetag</dt>
+			<dt id="viewer.overlays.northarrow.stroke" class="read write">viewer.overlays.northarrow.stroke</dt>
+			<dd id="viewer.overlays.northarrow.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.northarrow.strokeopacity" class="read write">viewer.overlays.northarrow.strokeopacity</dt>
+			<dd id="viewer.overlays.northarrow.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.northarrow.strokewidth" class="read write">viewer.overlays.northarrow.strokewidth</dt>
+			<dd id="viewer.overlays.northarrow.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.northarrow.transform" class="read write">viewer.overlays.northarrow.transform</dt>
+			<dd id="viewer.overlays.northarrow.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.northarrow.transforma" class="read write">viewer.overlays.northarrow.transforma</dt>
+			<dd id="viewer.overlays.northarrow.transforma_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f] for transform A.</dd>
+			<dt id="viewer.overlays.northarrow.transformb" class="read write">viewer.overlays.northarrow.transformb</dt>
+			<dd id="viewer.overlays.northarrow.transformb_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f] for transform B.</dd>
+			<dt id="viewer.overlays.northarrow.transformtag" class="read write">viewer.overlays.northarrow.transformtag</dt>
+			<dt id="viewer.overlays.northarrow.type" class="read">viewer.overlays.northarrow.type</dt>
+			<dd id="viewer.overlays.northarrow.type_usage" class="read usage">The object type of this overlay.</dd>
+		</dl>
+		<h1 id="viewer.overlays.rate" class="object">viewer.overlays.rate</h1>
+		<h2 id="viewer.overlays.rate_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.rate.align" class="read write">viewer.overlays.rate.align</dt>
+			<dd id="viewer.overlays.rate.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.rate.fill" class="read write">viewer.overlays.rate.fill</dt>
+			<dd id="viewer.overlays.rate.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.rate.fillopacity" class="read write">viewer.overlays.rate.fillopacity</dt>
+			<dd id="viewer.overlays.rate.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.rate.fontfamily" class="read write">viewer.overlays.rate.fontfamily</dt>
+			<dd id="viewer.overlays.rate.fontfamily_usage" class="read write usage">The font family used, e.g. Verdana.</dd>
+			<dd id="viewer.overlays.rate.fontfamily_default" class="default">Verdana</dd>
+			<dt id="viewer.overlays.rate.fontsize" class="read write">viewer.overlays.rate.fontsize</dt>
+			<dd id="viewer.overlays.rate.fontsize_usage" class="read write usage">Font size, e.g. 12px.</dd>
+			<dd id="viewer.overlays.rate.fontsize_default" class="default">12px</dd>
+			<dt id="viewer.overlays.rate.fontweight" class="read write">viewer.overlays.rate.fontweight</dt>
+			<dd id="viewer.overlays.rate.fontweight_usage" class="read write usage">Font weight [normal | bold].</dd>
+			<dt id="viewer.overlays.rate.format" class="read write">viewer.overlays.rate.format</dt>
+			<dd id="viewer.overlays.rate.format_usage" class="read write usage">The string format used to display the value of this overlay, e.g. "{0:F1} Hz" (default).</dd>
+			<dt id="viewer.overlays.rate.hidden" class="read write">viewer.overlays.rate.hidden</dt>
+			<dd id="viewer.overlays.rate.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.rate.remote" class="read">viewer.overlays.rate.remote</dt>
+			<dd id="viewer.overlays.rate.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.rate.size" class="read">viewer.overlays.rate.size</dt>
+			<dd id="viewer.overlays.rate.size_usage" class="read usage">The size of the text, measured in pixels.</dd>
+			<dt id="viewer.overlays.rate.sizetag" class="read write">viewer.overlays.rate.sizetag</dt>
+			<dt id="viewer.overlays.rate.stroke" class="read write">viewer.overlays.rate.stroke</dt>
+			<dd id="viewer.overlays.rate.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.rate.strokeopacity" class="read write">viewer.overlays.rate.strokeopacity</dt>
+			<dd id="viewer.overlays.rate.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.rate.strokewidth" class="read write">viewer.overlays.rate.strokewidth</dt>
+			<dd id="viewer.overlays.rate.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.rate.textalign" class="read write">viewer.overlays.rate.textalign</dt>
+			<dd id="viewer.overlays.rate.textalign_usage" class="read write usage">Text alignment [start | middle | end].</dd>
+			<dt id="viewer.overlays.rate.transform" class="read write">viewer.overlays.rate.transform</dt>
+			<dd id="viewer.overlays.rate.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.rate.transformtag" class="read write">viewer.overlays.rate.transformtag</dt>
+			<dt id="viewer.overlays.rate.type" class="read">viewer.overlays.rate.type</dt>
+			<dd id="viewer.overlays.rate.type_usage" class="read usage">The object type of this overlay.</dd>
+			<dt id="viewer.overlays.rate.value" class="read write">viewer.overlays.rate.value</dt>
+			<dd id="viewer.overlays.rate.value_usage" class="read write usage">The text content.</dd>
+		</dl>
+		<h1 id="viewer.overlays.text1" class="object">viewer.overlays.text1</h1>
+		<h2 id="viewer.overlays.text1_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.text1.align" class="read write">viewer.overlays.text1.align</dt>
+			<dd id="viewer.overlays.text1.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.text1.fill" class="read write">viewer.overlays.text1.fill</dt>
+			<dd id="viewer.overlays.text1.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.text1.fillopacity" class="read write">viewer.overlays.text1.fillopacity</dt>
+			<dd id="viewer.overlays.text1.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.text1.fontfamily" class="read write">viewer.overlays.text1.fontfamily</dt>
+			<dd id="viewer.overlays.text1.fontfamily_usage" class="read write usage">The font family used, e.g. Verdana.</dd>
+			<dd id="viewer.overlays.text1.fontfamily_default" class="default">Verdana</dd>
+			<dt id="viewer.overlays.text1.fontsize" class="read write">viewer.overlays.text1.fontsize</dt>
+			<dd id="viewer.overlays.text1.fontsize_usage" class="read write usage">Font size, e.g. 12px.</dd>
+			<dd id="viewer.overlays.text1.fontsize_default" class="default">12px</dd>
+			<dt id="viewer.overlays.text1.fontweight" class="read write">viewer.overlays.text1.fontweight</dt>
+			<dd id="viewer.overlays.text1.fontweight_usage" class="read write usage">Font weight [normal | bold].</dd>
+			<dt id="viewer.overlays.text1.hidden" class="read write">viewer.overlays.text1.hidden</dt>
+			<dd id="viewer.overlays.text1.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.text1.remote" class="read">viewer.overlays.text1.remote</dt>
+			<dd id="viewer.overlays.text1.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.text1.size" class="read">viewer.overlays.text1.size</dt>
+			<dd id="viewer.overlays.text1.size_usage" class="read usage">The size of the text, measured in pixels.</dd>
+			<dt id="viewer.overlays.text1.sizetag" class="read write">viewer.overlays.text1.sizetag</dt>
+			<dt id="viewer.overlays.text1.stroke" class="read write">viewer.overlays.text1.stroke</dt>
+			<dd id="viewer.overlays.text1.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.text1.strokeopacity" class="read write">viewer.overlays.text1.strokeopacity</dt>
+			<dd id="viewer.overlays.text1.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.text1.strokewidth" class="read write">viewer.overlays.text1.strokewidth</dt>
+			<dd id="viewer.overlays.text1.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.text1.textalign" class="read write">viewer.overlays.text1.textalign</dt>
+			<dd id="viewer.overlays.text1.textalign_usage" class="read write usage">Text alignment [start | middle | end].</dd>
+			<dt id="viewer.overlays.text1.transform" class="read write">viewer.overlays.text1.transform</dt>
+			<dd id="viewer.overlays.text1.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.text1.transformtag" class="read write">viewer.overlays.text1.transformtag</dt>
+			<dt id="viewer.overlays.text1.type" class="read">viewer.overlays.text1.type</dt>
+			<dd id="viewer.overlays.text1.type_usage" class="read usage">The object type of this overlay.</dd>
+			<dt id="viewer.overlays.text1.value" class="read write">viewer.overlays.text1.value</dt>
+			<dd id="viewer.overlays.text1.value_usage" class="read write usage">The text content.</dd>
+		</dl>
+		<h1 id="viewer.overlays.text2" class="object">viewer.overlays.text2</h1>
+		<h2 id="viewer.overlays.text2_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.text2.align" class="read write">viewer.overlays.text2.align</dt>
+			<dd id="viewer.overlays.text2.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.text2.fill" class="read write">viewer.overlays.text2.fill</dt>
+			<dd id="viewer.overlays.text2.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.text2.fillopacity" class="read write">viewer.overlays.text2.fillopacity</dt>
+			<dd id="viewer.overlays.text2.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.text2.fontfamily" class="read write">viewer.overlays.text2.fontfamily</dt>
+			<dd id="viewer.overlays.text2.fontfamily_usage" class="read write usage">The font family used, e.g. Verdana.</dd>
+			<dd id="viewer.overlays.text2.fontfamily_default" class="default">Verdana</dd>
+			<dt id="viewer.overlays.text2.fontsize" class="read write">viewer.overlays.text2.fontsize</dt>
+			<dd id="viewer.overlays.text2.fontsize_usage" class="read write usage">Font size, e.g. 12px.</dd>
+			<dd id="viewer.overlays.text2.fontsize_default" class="default">12px</dd>
+			<dt id="viewer.overlays.text2.fontweight" class="read write">viewer.overlays.text2.fontweight</dt>
+			<dd id="viewer.overlays.text2.fontweight_usage" class="read write usage">Font weight [normal | bold].</dd>
+			<dt id="viewer.overlays.text2.hidden" class="read write">viewer.overlays.text2.hidden</dt>
+			<dd id="viewer.overlays.text2.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.text2.remote" class="read">viewer.overlays.text2.remote</dt>
+			<dd id="viewer.overlays.text2.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.text2.size" class="read">viewer.overlays.text2.size</dt>
+			<dd id="viewer.overlays.text2.size_usage" class="read usage">The size of the text, measured in pixels.</dd>
+			<dt id="viewer.overlays.text2.sizetag" class="read write">viewer.overlays.text2.sizetag</dt>
+			<dt id="viewer.overlays.text2.stroke" class="read write">viewer.overlays.text2.stroke</dt>
+			<dd id="viewer.overlays.text2.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.text2.strokeopacity" class="read write">viewer.overlays.text2.strokeopacity</dt>
+			<dd id="viewer.overlays.text2.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.text2.strokewidth" class="read write">viewer.overlays.text2.strokewidth</dt>
+			<dd id="viewer.overlays.text2.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.text2.textalign" class="read write">viewer.overlays.text2.textalign</dt>
+			<dd id="viewer.overlays.text2.textalign_usage" class="read write usage">Text alignment [start | middle | end].</dd>
+			<dt id="viewer.overlays.text2.transform" class="read write">viewer.overlays.text2.transform</dt>
+			<dd id="viewer.overlays.text2.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.text2.transformtag" class="read write">viewer.overlays.text2.transformtag</dt>
+			<dt id="viewer.overlays.text2.type" class="read">viewer.overlays.text2.type</dt>
+			<dd id="viewer.overlays.text2.type_usage" class="read usage">The object type of this overlay.</dd>
+			<dt id="viewer.overlays.text2.value" class="read write">viewer.overlays.text2.value</dt>
+			<dd id="viewer.overlays.text2.value_usage" class="read write usage">The text content.</dd>
+		</dl>
+		<h1 id="viewer.overlays.track" class="object">viewer.overlays.track</h1>
+		<h2 id="viewer.overlays.track_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.track.align" class="read write">viewer.overlays.track.align</dt>
+			<dd id="viewer.overlays.track.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.track.fill" class="read write">viewer.overlays.track.fill</dt>
+			<dd id="viewer.overlays.track.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.track.fillopacity" class="read write">viewer.overlays.track.fillopacity</dt>
+			<dd id="viewer.overlays.track.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.track.hidden" class="read write">viewer.overlays.track.hidden</dt>
+			<dd id="viewer.overlays.track.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.track.remote" class="read">viewer.overlays.track.remote</dt>
+			<dd id="viewer.overlays.track.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.track.size" class="read">viewer.overlays.track.size</dt>
+			<dd id="viewer.overlays.track.size_usage" class="read usage">The size of the overlay when rendered, measured in pixels.</dd>
+			<dt id="viewer.overlays.track.sizetag" class="read write">viewer.overlays.track.sizetag</dt>
+			<dt id="viewer.overlays.track.stroke" class="read write">viewer.overlays.track.stroke</dt>
+			<dd id="viewer.overlays.track.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.track.strokeopacity" class="read write">viewer.overlays.track.strokeopacity</dt>
+			<dd id="viewer.overlays.track.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.track.strokewidth" class="read write">viewer.overlays.track.strokewidth</dt>
+			<dd id="viewer.overlays.track.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.track.transform" class="read write">viewer.overlays.track.transform</dt>
+			<dd id="viewer.overlays.track.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.track.transformtag" class="read write">viewer.overlays.track.transformtag</dt>
+			<dt id="viewer.overlays.track.type" class="read">viewer.overlays.track.type</dt>
+			<dd id="viewer.overlays.track.type_usage" class="read usage">The object type of this overlay.</dd>
+		</dl>
+		<h1 id="viewer.overlays.watch" class="object">viewer.overlays.watch</h1>
+		<h2 id="viewer.overlays.watch_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="viewer.overlays.watch.align" class="read write">viewer.overlays.watch.align</dt>
+			<dd id="viewer.overlays.watch.align_usage" class="read write usage">The alignment of this overlay [Left | Center | Right | Top | Middle | Bottom | LeftTop | CenterTop | RightTop | LeftMiddle | CenterMiddle | RightMiddle | LeftBottom | CenterBottom | RightBottom].</dd>
+			<dt id="viewer.overlays.watch.fill" class="read write">viewer.overlays.watch.fill</dt>
+			<dd id="viewer.overlays.watch.fill_usage" class="read write usage">The fill color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.watch.fillopacity" class="read write">viewer.overlays.watch.fillopacity</dt>
+			<dd id="viewer.overlays.watch.fillopacity_usage" class="read write usage">The fill opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.watch.fontfamily" class="read write">viewer.overlays.watch.fontfamily</dt>
+			<dd id="viewer.overlays.watch.fontfamily_usage" class="read write usage">The font family used, e.g. Verdana.</dd>
+			<dd id="viewer.overlays.watch.fontfamily_default" class="default">Verdana</dd>
+			<dt id="viewer.overlays.watch.fontsize" class="read write">viewer.overlays.watch.fontsize</dt>
+			<dd id="viewer.overlays.watch.fontsize_usage" class="read write usage">Font size, e.g. 12px.</dd>
+			<dd id="viewer.overlays.watch.fontsize_default" class="default">12px</dd>
+			<dt id="viewer.overlays.watch.fontweight" class="read write">viewer.overlays.watch.fontweight</dt>
+			<dd id="viewer.overlays.watch.fontweight_usage" class="read write usage">Font weight [normal | bold].</dd>
+			<dt id="viewer.overlays.watch.hidden" class="read write">viewer.overlays.watch.hidden</dt>
+			<dd id="viewer.overlays.watch.hidden_usage" class="read write usage">Whether this overlay is hidden (true) or visible (false).</dd>
+			<dt id="viewer.overlays.watch.remote" class="read">viewer.overlays.watch.remote</dt>
+			<dd id="viewer.overlays.watch.remote_usage" class="read usage">The object type of this remote overlay.</dd>
+			<dt id="viewer.overlays.watch.size" class="read">viewer.overlays.watch.size</dt>
+			<dd id="viewer.overlays.watch.size_usage" class="read usage">The size of the text, measured in pixels.</dd>
+			<dt id="viewer.overlays.watch.sizetag" class="read write">viewer.overlays.watch.sizetag</dt>
+			<dt id="viewer.overlays.watch.stroke" class="read write">viewer.overlays.watch.stroke</dt>
+			<dd id="viewer.overlays.watch.stroke_usage" class="read write usage">The stroke color used, e.g. red or #ff0000.</dd>
+			<dt id="viewer.overlays.watch.strokeopacity" class="read write">viewer.overlays.watch.strokeopacity</dt>
+			<dd id="viewer.overlays.watch.strokeopacity_usage" class="read write usage">The stroke opacity used, e.g. 0.7 or 1.</dd>
+			<dt id="viewer.overlays.watch.strokewidth" class="read write">viewer.overlays.watch.strokewidth</dt>
+			<dd id="viewer.overlays.watch.strokewidth_usage" class="read write usage">The stroke width, e.g. 1px.</dd>
+			<dt id="viewer.overlays.watch.textalign" class="read write">viewer.overlays.watch.textalign</dt>
+			<dd id="viewer.overlays.watch.textalign_usage" class="read write usage">Text alignment [start | middle | end].</dd>
+			<dt id="viewer.overlays.watch.transform" class="read write">viewer.overlays.watch.transform</dt>
+			<dd id="viewer.overlays.watch.transform_usage" class="read write usage">The 2D 3x2 transform matrix [a, b, c, d, e, f]. See www.w3.org/TR/css3-transforms/#MatrixDefined.</dd>
+			<dt id="viewer.overlays.watch.transformtag" class="read write">viewer.overlays.watch.transformtag</dt>
+			<dt id="viewer.overlays.watch.type" class="read">viewer.overlays.watch.type</dt>
+			<dd id="viewer.overlays.watch.type_usage" class="read usage">The object type of this overlay.</dd>
+			<dt id="viewer.overlays.watch.value" class="read write">viewer.overlays.watch.value</dt>
+			<dd id="viewer.overlays.watch.value_usage" class="read write usage">The text content.</dd>
+		</dl>
+		<h1 id="window" class="object">window</h1>
+		<h2 id="window_properties" class="properties">Properties</h2>
+		<dl class="properties">
+			<dt id="window.border" class="read write">window.border</dt>
+			<dd id="window.border_usage" class="read write usage">The window border type [resizable | fixed | hidden].</dd>
+			<dt id="window.closeaction" class="read write">window.closeaction</dt>
+			<dd id="window.closeaction_usage" class="read write usage">Which action to perform when the window is closed [close | hide | reject].</dd>
+			<dt id="window.handle" class="read write">window.handle</dt>
+			<dd id="window.handle_usage" class="read write usage">The OS handle of the window.</dd>
+			<dt id="window.position" class="read write notify">window.position</dt>
+			<dd id="window.position_usage" class="read write notify usage">The window position, expressed as x,y.</dd>
+			<dt id="window.showintaskbar" class="read write">window.showintaskbar</dt>
+			<dd id="window.showintaskbar_usage" class="read write usage">Whether or not to show the window in the Taskbar [true | false].</dd>
+			<dt id="window.size" class="read write notify">window.size</dt>
+			<dd id="window.size_usage" class="read write notify usage">The size of the window, excluding border, as width,height.</dd>
+			<dt id="window.state" class="read write">window.state</dt>
+			<dd id="window.state_usage" class="read write usage">The window state [minimized | normal | maximized].</dd>
+			<dt id="window.title" class="read write notify">window.title</dt>
+			<dd id="window.title_usage" class="read write notify usage">The window title.</dd>
+			<dt id="window.topmost" class="read write">window.topmost</dt>
+			<dd id="window.topmost_usage" class="read write usage">Whether to keep the window topmost (always on top) [true | false].</dd>
+			<dt id="window.totalsize" class="read write notify">window.totalsize</dt>
+			<dd id="window.totalsize_usage" class="read write notify usage">The size of the window, including border, as width,height.</dd>
+			<dt id="window.visible" class="read write notify">window.visible</dt>
+			<dd id="window.visible_usage" class="read write notify usage">Whether the window is visible [true | false].</dd>
+		</dl>
+	</body>
+</html> 
