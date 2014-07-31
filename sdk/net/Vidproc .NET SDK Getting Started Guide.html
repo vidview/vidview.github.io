@@ -28,19 +28,13 @@
 <p>Follow the same procedure as in steps 2.3 and 2.4 of the <a href="Vidview .NET SDK Getting Started Guide.html#installing.packages_preparing.a.local.package.feed">Vidview .NET SDK Getting Started Guide</a>, but instead of <code>vidview-latest.zip</code>, download <code>https://aurora.imint.se/download/<b>yourlicensekey</b>/vidproc_packages.zip</code>.</p>
 
 <h2>Installing the NuGet packages</h2>
-<p>Find and install the package <code>Imint.Vidproc.Sample</code> using the NuGet Package Manager. This will 
-<ol>
-<li>install all of its dependencies, and</li>
-<li>overwrite the file Program.cs in your project.</li>
-</ol>
-</p>
+<p>Install all of the packages in your local repository using the NuGet Package Manager. This will overwrite the file Program.cs in your project.</p>
 
 <h2>Building and Running</h2>
 <p>Build the project and run. A simple console application will launch and prompt you for a media file to open. Once a media file has successfully been opened, it will loop forever, asking you to enter coordinates in which to try to find an object to start tracking. These coordinates are either 
 <ol><li>a point between <code>-0.5,&nbsp;-0.5</code> and <code>0.5,&nbsp;0.5</code>, or</li>
 <li> a box, consisting of such a point followed by a width and a height, e.g. <code>0.2,&nbsp;-.3,&nbsp;0.2,&nbsp;0.2</code>, where a width of <code>0.2</code> means "20% of the frame width".</li>
 </ol>If width and height are not specified, or if either is set to <code>0</code>, these both default to <code>0.2</code>. The program will then output the coordinates of the object being tracked, until it fails to stay on a target, at which point you will be prompted to enter new coordinates.</p>
-
-<p>If you want to run this Vidproc sample application with process separation (by launching the binary with <code>-p</code>), you must also install the package <code>Imint.Vidproc.Run</code>.</p>
+<p>The program will also output the stabilization matrix.</p>
 </body>
 </html>
