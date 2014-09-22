@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vidhance Sharp Stills</title>
+	<meta name="author" content="Andreas Lifvendahl"/>
+	<meta name="identification" content=""/>
+	<meta name="classification" content=""/>
+	<meta name="date" content="June, 2013"/>
+	<link href="..../style/document.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<header>Example of automatic sharp stills selector</header>
+<h1>Background</h1>
+<p>This shows the Imint roadmap feature of automatically select the sharpest video frame to use as snapshot. Imint Vidhance meta analysis already provide
+information on video frame sharpness, which would be utilized in this function. On a moving platform, some video frames will be sharper than others, due to vibrations.
+The feature will work like this: when an operator clicks to select a snapshot from moving video, the function will search in a narrow band of previous and future frames
+, selecting as a snapshot the one with best visibility. Increasing the band will provide better sharpness, while a more narrow search band will ensure timing accuracy.
+</p>
+
+
+
+
+<h2>Example</h2>
+ <p>Below are five consecutive frames from an aerial video from a helicopter platform. In this example the search band is set to 2, which means that the current frame and +/- two
+ frames will be analysed, in total 5 frames.
+  </p>
+
+<ol>
+	<li>Frame n-2</li>
+		<img src="images/frame1.png" width="480" height="270">
+	<li>Frame n-1</li>
+		<img src="images/frame2.png" width="480" height="270">
+	<li>Frame n</li>
+		<img src="images/frame3.png" width="480" height="270">
+	<li>Frame n+1</li>
+		<img src="images/frame4.png" width="480" height="270">
+	<li>Frame n+2</li>
+		<img src="images/frame5.png" width="480" height="270">
+
+		</ol>
+</p>
+
+
+<p> In this example, the frame n+1 would be automatically selected to be used as snapshot still image. </p>
